@@ -14,21 +14,33 @@ class TodoItem extends Component {
     }
 
     render() {
+        const {id, title} = this.props.todo
         return (
             <div style={this.getStyle()}>
                 <p>
-                    <input type="checkbox" onChange={this.props.markComplete.bind(this, this.props.todo.id)}/> {/*You can't use 'this.markComplete directly' */}
-                    { this.props.todo.title }
+                    <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/> {/*You can't use 'this.markComplete directly' */}
+                    { title }
+                    <button onClick={this.props.delTodo.bind(this, id)} style={btnStyle}>x</button>
                 </p>
             </div>
         )
     }
 }
 
-// PropTypes
+// PropTypes, used for typeChecking
 
 TodoItem.propTypes = {
     todo: PropTypes.object.isRequired
 } 
+
+const btnStyle = {
+    background: '#ff0000',
+    color: 'white',
+    border: 'none',
+    padding: '5px 10px',
+    borderRadius: '50%',
+    cursor: 'pointer',
+    float: 'right'
+}
 
 export default TodoItem
