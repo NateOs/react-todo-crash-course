@@ -27,7 +27,7 @@ class TodoItem extends Component {
     }
 }
 
-// PropTypes, used for typeChecking
+// PropTypes, used for typeChecking, to prevent Errors
 
 TodoItem.propTypes = {
     todo: PropTypes.object.isRequired
